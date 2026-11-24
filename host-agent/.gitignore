@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+mediamtx*/
+mediamtx.exe
+auto.crt
+auto.key

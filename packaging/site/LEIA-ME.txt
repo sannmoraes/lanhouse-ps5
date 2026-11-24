@@ -1,0 +1,44 @@
+PACOTE DO SITE  -  Lan House PS5
+================================
+
+Fila de lances (leilão), fila grátis, contas, Pix, painel do dono e a tela onde o jogador vê e controla o PS5.
+O PC do PS5 (outro pacote) se conecta a este site.
+Idiomas: português em http://localhost:3000/ e inglês em http://localhost:3000/en/ (seletor PT | EN no topo).
+O painel do dono fica só em português. Termos e Privacidade em inglês são tradução: vale a versão em português.
+
+SE O WINDOWS BLOQUEAR OS SCRIPTS
+--------------------------------
+Arquivos baixados da internet vêm "bloqueados". Antes do passo 1, no PowerShell, dentro desta pasta:
+       Get-ChildItem -Recurse -Filter *.ps1 | Unblock-File
+       Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+(o segundo vale só para esta janela do PowerShell; não muda nada no Windows de forma permanente)
+
+PASSO A PASSO
+-------------
+1) Abra o PowerShell nesta pasta e rode:
+       .\instalar-site.ps1
+   Confere o Node (precisa do 24 ou mais novo), instala a dependência e cria o .env com SENHAS ALEATÓRIAS.
+   Ele mostra a senha do painel do dono e o HOST_SECRET. Anote os dois.
+
+2) Ligue o site:
+       .\iniciar-site.ps1
+   Abra http://localhost:3000, crie uma conta e teste. O painel do dono fica em /admin.html.
+
+3) No PC do PS5, o config.ps1 recebe o HOST_SECRET e o endereço deste site (ws://IP-DESTE-PC:3000).
+
+DICAS
+-----
+- Pix: por padrão é o Pix de MENTIRA (aparece o botão "Simular pagamento"). Ninguém é cobrado.
+  Para cobrar de verdade (Mercado Pago), edite o .env e leia o README.md (nunca foi testado com credenciais reais).
+- Vídeo: o link do vídeo (WHEP_URL no .env) usa o endereço deste PC na rede. Se o PC do PS5 for outro,
+  aponte para o IP do PC do PS5 (o MediaMTX roda lá): http://IP-DO-PC-DO-PS5:8889/ps5/whep
+- Internet: coloque o site atrás de HTTPS (por exemplo com Caddy) e use COOKIE_SECURE=true. Veja o README.md.
+- Quem opera o site: preencha OPERATOR_NAME e CONTACT_EMAIL no .env (aparecem nas páginas de Termos e Privacidade).
+- Cadastro: a pessoa só entra depois de digitar um código de 6 dígitos enviado ao e-mail. Por isso o ENVIO DE E-MAIL é obrigatório
+  para abrir ao público (veja abaixo). Só para testar sozinho, REQUIRE_EMAIL_VERIFICATION=false dispensa o código.
+- Devoluções: o painel do dono mostra "Devoluções a fazer" quando alguém paga um aumento que não comprou nada.
+- E-mail (confirmar cadastro e recuperar senha): por padrão (MAIL_PROVIDER=console) NADA é enviado; o código aparece no log do servidor.
+  Para enviar de verdade, no .env ponha MAIL_PROVIDER=smtp e preencha MAIL_FROM, SMTP_HOST, SMTP_PORT, SMTP_USER e
+  SMTP_PASS (o provedor de e-mail da sua hospedagem informa esses dados). Teste esquecendo a senha de uma conta sua.
+- Backup: copie a pasta data\ (contas e pedidos) todo dia.
+- O .env guarda as senhas. Não compartilhe.

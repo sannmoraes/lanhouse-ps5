@@ -1,0 +1,27 @@
+{
+  "name": "lanhouse-ps5",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "author": "Sandro Moraes",
+  "description": "Site de lan house: aluguel de minutos de um PS5 por Pix, com fila e turnos.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test \"test/*.test.js\"",
+    "package": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/make-package.ps1"
+  },
+  "dependencies": {
+    "nodemailer": "^10.6.1",
+    "ws": "^8.23.0"
+  },
+  "devDependencies": {
+    "jsqr": "^1.4.0",
+    "qrcode-generator": "^2.0.4"
+  }
+}

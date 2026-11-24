@@ -1,0 +1,47 @@
+PACOTE DO PC DO PS5  -  Lan House PS5
+=====================================
+
+Este PC fica junto do PS5 (mesma rede, os dois no cabo). Ele mostra o PS5, captura a imagem e o som e repassa
+os botões dos jogadores. O site (fila, Pix, contas) roda em outro pacote.
+
+SE O WINDOWS BLOQUEAR OS SCRIPTS
+--------------------------------
+Arquivos baixados da internet vêm "bloqueados". Antes do passo 1, no PowerShell, dentro desta pasta:
+       Get-ChildItem -Recurse -Filter *.ps1 | Unblock-File
+       Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+(o segundo vale só para esta janela do PowerShell; não muda nada no Windows de forma permanente)
+
+PASSO A PASSO
+-------------
+1) Abra o PowerShell nesta pasta e rode:
+       .\instalar.ps1
+   Ele confere Python e FFmpeg, instala as bibliotecas, baixa o MediaMTX (com conferência de hash) e cria o config.ps1.
+   Só instala o que você aprovar. Ao final roda o diagnóstico.
+
+2) Instale o chiaki-ng e registre o PS5 (isso usa a SUA conta PSN; faça você mesmo na janela do chiaki-ng).
+   Passo a passo completo: docs\INSTALACAO-NO-PS5.md (seções 2 e 3).
+   Deixe a janela do chiaki-ng em MODO JANELA, 1280x720, encostada no canto superior esquerdo do monitor.
+
+3) Abra o config.ps1 (Bloco de Notas) e confira:
+       Servidor, Segredo (o HOST_SECRET do site), Encoder, AudioDispositivo.
+   Para ver os nomes das saídas de áudio:   .\.venv\Scripts\python audio_loopback.py --list
+   Mande o som do chiaki-ng para uma saída só dele (Configurações do Windows > Som > Mixer de volume).
+
+4) Com o chiaki-ng aberto e transmitindo o PS5:
+       .\iniciar-tudo.ps1
+   Abra o painel do dono do site (/admin.html): deve mostrar "PC do console: pronto (vídeo no ar)".
+
+5) Para parar:           .\parar-tudo.ps1
+   Se algo não funcionar:  .\diagnostico.ps1
+
+TESTAR SEM O PS5
+----------------
+No config.ps1 ponha  ImagemDeTeste = $true  e  ControleVirtual = $false  e rode .\iniciar-tudo.ps1.
+O site mostra uma imagem de teste e o agente só imprime os botões que chegam.
+
+IMPORTANTE
+----------
+- O config.ps1 contém o segredo do site. Não compartilhe este arquivo.
+- Controle virtual: precisa do driver ViGEmBus (o instalador avisa e pede a sua aprovação).
+- Termos da Sony e das desenvolvedoras: confira antes de cobrar (veja o README do projeto).
+- Conta PSN: use uma conta só para a lan house, nunca a principal.

@@ -1,0 +1,31 @@
+<!-- title: Reset password -->
+<!-- script: recuperar.js -->
+<div class="max-w-md mx-auto p-4 pt-10">
+  <div class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">Reset password</h1>
+      <p id="sub" class="text-sm text-mute">Enter your account email. We send a 6-digit code.</p>
+    </div>
+
+    <!-- step 1 -->
+    <form id="form-email" class="flex flex-col gap-3" novalidate>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Email</span><input id="email" type="email" autocomplete="email" required class="field" /></label>
+      <p id="msg1" class="hidden text-sm"></p>
+      <button id="go1" class="py-3 rounded-lg btn-main">Send code</button>
+    </form>
+
+    <!-- step 2 -->
+    <form id="form-code" class="hidden flex flex-col gap-3" novalidate>
+      <p id="sent-to" class="text-sm text-money"></p>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">6-digit code</span><input id="code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" class="field font-mono tracking-[0.4em] text-lg text-center" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">New password (8 characters or more)</span><input id="pw" type="password" autocomplete="new-password" class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Repeat the new password</span><input id="pw2" type="password" autocomplete="new-password" class="field" /></label>
+      <p id="msg2" class="hidden text-sm"></p>
+      <button id="go2" class="py-3 rounded-lg btn-main">Change password</button>
+      <div class="flex justify-between text-sm"><button type="button" id="resend" class="text-pink hover:underline">Send another code</button><button type="button" id="back" class="text-mute hover:text-ink">Change email</button></div>
+    </form>
+
+    <p id="done" class="hidden text-money text-sm"></p>
+    <p class="text-sm text-mute text-center"><a href="/en/entrar.html" class="text-pink font-medium hover:underline">Back to sign in</a></p>
+  </div>
+</div>

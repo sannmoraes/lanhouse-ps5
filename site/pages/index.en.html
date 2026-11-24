@@ -1,0 +1,94 @@
+<!-- title: Play -->
+<!-- script: /vendor/qrcode.js, whep.js, play.js, index.js -->
+<div class="max-w-[1400px] mx-auto p-4 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_400px] gap-4 items-start">
+
+  <!-- LEFT: live game + who is playing -->
+  <section class="flex flex-col gap-4 min-w-0">
+    <div id="stage" class="relative bg-black rounded-xl overflow-hidden border border-line aspect-video">
+      <video id="video" class="absolute inset-0 w-full h-full bg-black hidden" autoplay muted playsinline></video>
+      <div id="video-box" class="absolute inset-0 flex items-center justify-center"></div>
+      <span id="live-badge" class="absolute top-3 left-3 flex items-center gap-2 px-2.5 py-1 rounded-md bg-black/70 text-xs font-mono font-bold"><span id="live-dot" class="w-2 h-2 rounded-full bg-mute"></span><span id="live-text">—</span></span>
+      <span id="ctl-chip" class="hidden absolute top-3 right-3 px-2.5 py-1 rounded-md bg-black/70 text-xs font-mono font-bold"></span>
+      <div class="absolute bottom-3 right-3 flex gap-2">
+        <button id="v-mute" class="hidden px-2.5 py-1 rounded-md bg-black/70 hover:bg-black text-xs font-mono">Turn on sound</button>
+        <button id="v-full" class="px-2.5 py-1 rounded-md bg-black/70 hover:bg-black text-xs font-mono">Fullscreen</button>
+      </div>
+    </div>
+
+    <div class="bg-panel border border-line rounded-xl p-4 flex flex-col sm:flex-row sm:items-center gap-4">
+      <div class="flex items-center gap-3 sm:w-1/3 min-w-0">
+        <div id="np-avatar" class="w-12 h-12 rounded-full bg-panel2 flex items-center justify-center text-xl font-bold shrink-0">?</div>
+        <div class="min-w-0">
+          <div class="text-xs font-mono text-mute uppercase">Now playing</div>
+          <div id="np-name" class="text-xl font-bold truncate">—</div>
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col gap-2">
+        <div class="flex items-end justify-between">
+          <span class="text-xs font-mono text-mute uppercase">Time left</span>
+          <span id="np-clock" class="text-4xl font-mono font-bold text-pink leading-none">--:--</span>
+        </div>
+        <div class="h-2 rounded-full bg-panel2 overflow-hidden"><div id="np-bar" class="h-full btn-main" style="width:0%"></div></div>
+        <div id="np-sub" class="text-xs text-mute"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: queue (auction) + bid + free queue -->
+  <aside class="flex flex-col gap-4">
+    <div class="bg-panel border border-line rounded-xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line">
+        <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-orange text-[20px]">gavel</span>Auction queue</h2>
+        <span id="q-count" class="text-xs font-mono px-2 py-0.5 rounded bg-panel2 text-mute">0</span>
+      </div>
+      <div id="q-list" class="divide-y divide-line max-h-[320px] overflow-y-auto"></div>
+      <div class="px-4 py-2 text-xs text-mute border-t border-line flex justify-between gap-2"><span>Whoever pays more per minute goes first.</span><span>Wait: <strong id="q-wait" class="text-ink">—</strong></span></div>
+    </div>
+
+    <div id="alert" class="hidden bg-orange/15 border border-orange text-orange rounded-xl px-4 py-3 text-sm font-medium"></div>
+
+    <!-- my ticket -->
+    <div id="my-box" class="hidden bg-panel border border-line rounded-xl p-4 flex flex-col gap-1">
+      <div class="text-xs font-mono text-mute uppercase">Your ticket</div>
+      <div id="my-title" class="font-bold"></div>
+      <div id="my-sub" class="text-sm text-mute"></div>
+    </div>
+
+    <!-- bid -->
+    <div class="bg-panel border border-line rounded-xl p-4 flex flex-col gap-3">
+      <h2 id="bid-title" class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-money text-[20px]">bolt</span><span>Place a bid</span></h2>
+      <p id="bid-hint" class="text-xs text-mute"></p>
+
+      <div id="buy-guest" class="hidden text-sm text-mute">To pay for a bid you need to <a href="/en/entrar.html?next=/en/" class="text-pink underline">sign in</a> or <a href="/en/criar-conta.html" class="text-pink underline">create an account</a>.</div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <label class="flex flex-col gap-1 text-xs text-mute">Minutes<select id="bid-min" class="field"></select></label>
+        <label class="flex flex-col gap-1 text-xs text-mute">Amount (R$)<input id="bid-reais" type="number" inputmode="numeric" min="1" step="1" class="field" /></label>
+      </div>
+      <div id="bid-preview" class="text-sm min-h-[2.5rem]"></div>
+      <button id="bid-first" class="hidden py-2 rounded-lg bg-panel2 hover:bg-line text-sm font-medium"></button>
+      <button id="bid-go" class="py-3 rounded-lg btn-main">Place bid and pay with Pix</button>
+      <p id="buy-error" class="hidden text-sm"></p>
+
+      <div id="pix" class="hidden flex flex-col gap-3 border-t border-line pt-3">
+        <div class="flex items-center justify-between text-sm"><span><strong id="pix-pack">—</strong> · <span id="pix-amount" class="text-money font-bold">—</span></span><span id="pix-expire" class="font-mono text-xs text-orange"></span></div>
+        <div id="pix-qr" class="hidden self-center bg-white p-2 rounded-lg"><canvas id="pix-qr-canvas" class="w-48 h-48" aria-label="Pix QR code"></canvas><img id="pix-qr-img" alt="Pix QR code" class="hidden w-48 h-48" /></div>
+        <p class="text-xs text-mute text-center -mt-1">Open your bank app, choose Pix and scan the QR code (or use copy and paste).</p>
+        <div class="flex gap-2"><input id="pix-code" readonly class="field text-xs font-mono min-w-0" /><button id="pix-copy" class="px-3 rounded-lg bg-panel2 hover:bg-line text-sm font-medium shrink-0">Copy</button></div>
+        <p class="text-xs text-mute">After you pay, the bid joins the queue on its own. You don't need to send a receipt.</p>
+        <div class="flex gap-2">
+          <button id="pix-dev" class="hidden flex-1 py-2 rounded-lg border border-orange text-orange text-sm font-medium hover:bg-orange hover:text-bg">Simulate payment (testing only)</button>
+          <button id="pix-cancel" class="px-3 py-2 rounded-lg bg-panel2 hover:bg-line text-sm">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- free queue -->
+    <div class="bg-panel border border-line rounded-xl p-4 flex flex-col gap-2">
+      <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-teal text-[20px]">redeem</span>Free queue</h2>
+      <p id="free-text" class="text-sm text-mute"></p>
+      <p id="free-error" class="hidden text-sm"></p>
+      <button id="free-go" class="py-2.5 rounded-lg bg-panel2 hover:bg-line font-medium border border-line">Join the free queue</button>
+    </div>
+  </aside>
+</div>

@@ -1,0 +1,34 @@
+# MediaMTX: recebe o video do FFmpeg (WHIP) e entrega aos navegadores (WHEP), tudo por WebRTC.
+# Confira os nomes das chaves com a sua versao do MediaMTX (as de WebRTC mudaram na 1.9).
+logLevel: info
+
+# API local: o agente pergunta aqui se ha video no ar. Fica so no proprio PC.
+api: true
+apiAddress: 127.0.0.1:9997
+
+# Entrada do video do FFmpeg no proprio PC (RTSP so na porta local, so TCP). E o jeito mais robusto de publicar
+# video + audio: o FFmpeg nao le respostas WHIP grandes (mais de 2 enderecos anunciados) quando ha audio.
+rtsp: true
+rtspAddress: 127.0.0.1:8554
+rtspTransports: [tcp]
+
+# Desliga o que nao usamos.
+rtmp: false
+hls: false
+srt: false
+moq: false
+
+webrtc: true
+webrtcAddress: :8889
+# Porta UDP da midia. Se o MediaMTX estiver na internet, abra esta porta UDP no firewall/roteador.
+webrtcLocalUDPAddress: :8189
+# Quem pode abrir o video pelo navegador. Em producao troque pelo endereco do seu site.
+webrtcAllowOrigins: ['*']
+# Na internet, ponha aqui o IP publico ou o dominio do servidor de video.
+webrtcAdditionalHosts: []
+# ATENCAO (so se o FFmpeg publicar por WHIP neste MediaMTX): com audio, no maximo 2 enderecos anunciados.
+# Para isso use  webrtcIPsFromInterfaces: false  e liste ate 2 enderecos em webrtcAdditionalHosts.
+
+paths:
+  ps5:
+    source: publisher

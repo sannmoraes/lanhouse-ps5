@@ -1,0 +1,18 @@
+<!-- title: Confirmar e-mail -->
+<!-- script: confirmar.js -->
+<div class="max-w-md mx-auto p-4 pt-10">
+  <div class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">Confirme o seu e-mail</h1>
+      <p id="sub" class="text-sm text-mute">Enviamos um código de 6 dígitos. Digite-o aqui para ativar a conta.</p>
+    </div>
+    <form id="form-confirm" class="flex flex-col gap-3" novalidate>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">E-mail</span><input id="email" type="email" autocomplete="email" required class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Código de 6 dígitos</span><input id="code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" class="field font-mono tracking-[0.4em] text-lg text-center" /></label>
+      <p id="msg" class="hidden text-sm"></p>
+      <button id="go" class="py-3 rounded-lg btn-main">Confirmar e entrar</button>
+      <div class="flex justify-between text-sm"><button type="button" id="resend" class="text-pink hover:underline">Enviar outro código</button><a href="/criar-conta.html" class="text-mute hover:text-ink">Errei o e-mail</a></div>
+    </form>
+    <p class="text-xs text-mute">O código vale 15 minutos. Não chegou? Veja a pasta de spam. Se você não criou esta conta, ignore o e-mail: nada será ativado.</p>
+  </div>
+</div>

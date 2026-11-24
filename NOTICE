@@ -1,0 +1,30 @@
+Lan House PS5
+Copyright (C) 2026 Sandro Moraes
+
+Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo sob os termos da
+GNU Affero General Public License, versão 3 ou (a seu critério) qualquer versão posterior,
+publicada pela Free Software Foundation. Veja o arquivo LICENSE.
+
+Este programa é distribuído na esperança de que seja útil, mas SEM NENHUMA GARANTIA; sem
+sequer a garantia implícita de COMERCIALIZAÇÃO ou ADEQUAÇÃO A UM PROPÓSITO PARTICULAR.
+
+Importante para quem colocar o site no ar (AGPL, seção 13): se você modificar o programa e
+deixá-lo acessível a outras pessoas pela internet, precisa oferecer a elas o código-fonte
+completo da SUA versão modificada. Configure SOURCE_URL no .env para mostrar o link no rodapé.
+Você deve manter este aviso de copyright e o arquivo LICENSE em qualquer cópia.
+
+Este projeto é independente: não tem vínculo com a Sony Interactive Entertainment nem com as
+desenvolvedoras dos jogos. "PlayStation" e "PS5" são marcas dos seus donos.
+
+------------------------------------------------------------------------------------------
+Componentes de terceiros (mantêm as próprias licenças)
+
+- qrcode-generator 2.0.4, de Kazuhiko Arase (public/vendor/qrcode.js), licença MIT.
+- ws (WebSocket para Node.js), licença MIT.
+- nodemailer, licença MIT-0.
+- jsQR (só nos testes), licença Apache-2.0.
+- Dependências do agente em Python (host-agent/requirements.txt): websockets, numpy, soundcard,
+  vgamepad (cada uma com a sua licença).
+- Programas externos que o guia manda instalar separadamente, e que NÃO fazem parte deste
+  projeto: chiaki-ng, FFmpeg, MediaMTX, ViGEmBus. Veja as licenças deles nos sites oficiais.
+- Fontes e estilos carregados da internet pelas páginas: Google Fonts e Tailwind CSS (CDN).

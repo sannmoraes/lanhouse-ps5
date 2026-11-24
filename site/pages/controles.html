@@ -1,0 +1,46 @@
+<!-- title: Controles -->
+<!-- script: controles.js -->
+<div class="max-w-5xl mx-auto p-4 flex flex-col gap-4">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pt-2">
+    <div>
+      <h1 class="text-2xl font-bold">Controles</h1>
+      <p class="text-sm text-mute">Escolha as teclas e confira o seu controle. Salvo na conta, vale em qualquer aparelho.</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btn-reset" class="px-4 py-2 rounded-lg bg-panel2 hover:bg-line text-sm">Restaurar padrão</button>
+      <button id="btn-save" class="px-4 py-2 rounded-lg btn-main text-sm" disabled>Salvar</button>
+    </div>
+  </div>
+  <p id="save-msg" class="hidden text-sm"></p>
+  <div id="guest-note" class="hidden text-sm bg-panel2 border border-line rounded-lg p-3">Você não está logado: as mudanças ficam só neste navegador. <a href="/entrar.html?next=/controles.html" class="text-pink underline">Entre</a> para sincronizar na conta.</div>
+
+  <section class="bg-panel border border-line rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div>
+      <div class="font-bold">Direcionais do teclado</div>
+      <p class="text-sm text-mute">Escolha o que as teclas de direção controlam. Para jogos 3D (andar, dirigir), use o analógico.</p>
+    </div>
+    <select id="kb-mode" class="field sm:w-64"><option value="dpad">Direcional (D-pad)</option><option value="stick">Analógico esquerdo</option></select>
+  </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- teclado -->
+    <section class="bg-panel border border-line rounded-xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line">
+        <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-teal text-[20px]">keyboard</span>Teclado</h2>
+        <span class="text-xs text-mute">Clique em Alterar e aperte a tecla</span>
+      </div>
+      <div id="kb-rows" class="divide-y divide-line"></div>
+    </section>
+
+    <!-- controle fisico -->
+    <section class="bg-panel border border-line rounded-xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line">
+        <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-orange text-[20px]">sports_esports</span>Controle</h2>
+        <span id="pad-badge" class="text-xs font-mono px-2 py-0.5 rounded bg-panel2 text-mute">NENHUM</span>
+      </div>
+      <div id="pad-info" class="px-4 py-3 text-sm text-mute border-b border-line">Conecte o controle por cabo USB ou Bluetooth e aperte qualquer botão para ele aparecer aqui.</div>
+      <div id="pad-rows" class="divide-y divide-line"></div>
+    </section>
+  </div>
+  <p class="text-xs text-mute">As linhas acendem quando você aperta a tecla ou o botão: é o jeito de testar. O envio dos comandos ao console será ligado junto com o vídeo (etapa 2).</p>
+</div>

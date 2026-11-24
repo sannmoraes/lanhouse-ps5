@@ -1,0 +1,44 @@
+<!-- title: My account -->
+<!-- script: conta.js -->
+<div class="max-w-2xl mx-auto p-4 flex flex-col gap-4">
+  <h1 class="text-2xl font-bold pt-2">My account</h1>
+
+  <section class="bg-panel border border-line rounded-xl p-5 flex flex-col gap-3">
+    <h2 class="font-bold">Profile</h2>
+    <div class="text-sm"><span class="text-mute">Email:</span> <span id="p-email">—</span></div>
+    <form id="nick-form" class="flex flex-col sm:flex-row gap-2 sm:items-end">
+      <label class="flex-1 flex flex-col gap-1 text-sm"><span class="text-mute">Nickname</span><input id="p-nick" maxlength="16" class="field" /></label>
+      <button class="py-2.5 px-4 rounded-lg btn-main">Save nickname</button>
+    </form>
+    <p id="nick-msg" class="hidden text-sm"></p>
+  </section>
+
+  <section class="bg-panel border border-line rounded-xl p-5 flex flex-col gap-3">
+    <h2 class="font-bold">Change password</h2>
+    <form id="pw-form" class="flex flex-col gap-3">
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Current password</span><input id="pw-cur" type="password" autocomplete="current-password" class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">New password (8 characters or more)</span><input id="pw-new" type="password" autocomplete="new-password" class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Repeat the new password</span><input id="pw-new2" type="password" autocomplete="new-password" class="field" /></label>
+      <button class="py-2.5 rounded-lg btn-main self-start px-4">Change password</button>
+    </form>
+    <p id="pw-msg" class="hidden text-sm"></p>
+    <p class="text-xs text-mute">When you change your password, you are signed out of your other devices.</p>
+  </section>
+
+  <section class="bg-panel border border-line rounded-xl p-5 flex flex-col gap-3">
+    <div class="flex items-center justify-between"><h2 class="font-bold">My purchases</h2><a href="/en/controles.html" class="text-sm text-pink hover:underline">Set up controls</a></div>
+    <div id="orders" class="text-sm divide-y divide-line"></div>
+  </section>
+
+  <section class="bg-panel border border-bad/40 rounded-xl p-5 flex flex-col gap-3">
+    <h2 class="font-bold text-bad">Delete account</h2>
+    <p class="text-sm text-mute">Deletes your access and your saved controls. This cannot be undone. You can only delete your account if you have no ticket in the queue.</p>
+    <form id="del-form" class="flex flex-col sm:flex-row gap-2 sm:items-end">
+      <label class="flex-1 flex flex-col gap-1 text-sm"><span class="text-mute">Confirm with your password</span><input id="del-pw" type="password" autocomplete="current-password" class="field" /></label>
+      <button class="py-2.5 px-4 rounded-lg border border-bad text-bad hover:bg-bad hover:text-white font-medium">Delete my account</button>
+    </form>
+    <p id="del-msg" class="hidden text-sm"></p>
+  </section>
+
+  <button id="logout" class="self-start px-4 py-2 rounded-lg bg-panel2 hover:bg-line text-sm">Sign out</button>
+</div>

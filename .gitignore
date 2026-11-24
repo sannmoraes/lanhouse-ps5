@@ -1,0 +1,23 @@
+node_modules/
+data/*.db
+data/*.db-*
+.env
+dist/
+run/
+config.ps1
+
+# Python / agente
+.venv/
+__pycache__/
+*.pyc
+host-agent/mediamtx.exe
+host-agent/mediamtx
+
+# Registros e processos de teste
+*.log
+*.pid
+
+# Editor / ferramentas
+.claude/
+.vscode/
+.idea/

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lan House PS5 // Terms of use</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// Paleta "cidade neon" (rosa, laranja e ciano sobre roxo escuro, com o verde do dinheiro). Troque aqui para mudar o site todo.
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0e0716', panel: '#1a0f2b', panel2: '#251639', line: '#3a2557',
+        ink: '#f6eefc', mute: '#a99bc0',
+        pink: '#ff3d9a', orange: '#ff9a2e', teal: '#2de2e6', money: '#36d97b', bad: '#ff4b5c',
+      },
+      fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+    },
+  },
+};
+</script>
+<style>
+  html { background: #0e0716; }
+  body { background: #0e0716 radial-gradient(1200px 500px at 50% -120px, rgba(255,61,154,.22), transparent 70%), radial-gradient(900px 400px at 100% 0, rgba(255,154,46,.12), transparent 70%); background-attachment: fixed; }
+  .grad-text { background: linear-gradient(90deg,#ff3d9a,#ff9a2e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn-main { background: linear-gradient(90deg,#ff3d9a,#ff7a3d); color: #fff; font-weight: 700; }
+  .btn-main:hover { filter: brightness(1.1); }
+  .btn-main:disabled { opacity: .5; cursor: not-allowed; }
+  .field { background: #120a1f; border: 1px solid #3a2557; border-radius: 8px; padding: 10px 12px; width: 100%; color: #f6eefc; }
+  .field:focus { outline: none; border-color: #ff3d9a; box-shadow: 0 0 0 2px rgba(255,61,154,.25); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23ff3d9a%27/%3E%3Cpath d=%27M8 22V10h4l4 6 4-6h4v12h-4v-6l-4 6-4-6v6z%27 fill=%27%230e0716%27/%3E%3C/svg%3E"/>
+</head>
+
+<body class="font-sans text-ink antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-40 bg-bg/90 backdrop-blur border-b border-line">
+  <div class="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-6 min-w-0">
+      <a href="/en/" class="flex items-center gap-2 shrink-0">
+        <span class="material-symbols-outlined text-pink text-[28px]">sports_esports</span>
+        <span class="text-lg font-bold tracking-tight">LAN HOUSE <span class="grad-text">PS5</span></span>
+      </a>
+      <nav class="hidden sm:flex items-center gap-1"><a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Play</a><a href="/en/controles.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Controls</a><a href="/en/conta.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Account</a></nav>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <span class="hidden md:flex items-center gap-2 text-xs font-mono text-mute"><span id="hdr-dot" class="w-2 h-2 rounded-full bg-mute"></span><span id="hdr-status">CONNECTING</span></span>
+      <span class="flex items-center rounded-md border border-line text-xs font-mono overflow-hidden" role="group" aria-label="Language"><a href="/termos.html" data-lang="pt" hreflang="pt-BR" lang="pt-BR" class="lang-link px-2 py-1 text-mute hover:text-ink">PT</a><a href="/en/termos.html" data-lang="en" hreflang="en" lang="en" class="lang-link px-2 py-1 bg-panel2 text-pink" aria-current="true">EN</a></span>
+      <div id="auth-area" class="flex items-center gap-2"></div>
+    </div>
+  </div>
+  <nav class="sm:hidden flex items-center gap-1 px-4 pb-2 overflow-x-auto"><a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Play</a><a href="/en/controles.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Controls</a><a href="/en/conta.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Account</a></nav>
+</header>
+
+<main class="flex-1 w-full"><div class="max-w-3xl mx-auto p-4 pt-10">
+  <article class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-5 text-sm leading-relaxed">
+    <header>
+      <h1 class="text-2xl font-bold">Terms of use</h1>
+      <p class="text-mute">Last updated: 24/11/2026 (day/month/year). By creating an account you declare that you have read and accept these terms and the <a href="/en/privacidade.html" class="text-pink hover:underline">Privacy policy</a>.</p>
+      <p class="mt-2 text-mute">This text is a courtesy translation. The <a href="/termos.html" hreflang="pt-BR" class="text-pink hover:underline">Portuguese version</a> prevails if there is any difference between the two, and the applicable law is Brazilian law.</p>
+      <p id="legal-warn" class="hidden mt-2 text-bad font-medium"></p>
+    </header>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">1. Who we are and what the service is</h2>
+      <p>This site is operated by <strong data-op="name">the site operator</strong> ("we"). We rent <strong>remote usage time</strong> on a PlayStation 5 console that stays connected to a computer of ours: you see the live image in your browser and send the controller buttons over the internet. You do not receive the console, the PlayStation account, games or files.</p>
+      <p>This is an independent service, <strong>with no affiliation with, sponsorship by or approval from Sony Interactive Entertainment or the developers and publishers of the games</strong>. Names and trademarks belong to their owners.</p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">2. Who can use it</h2>
+      <p>Only people aged 18 or older. When you create an account you confirm your age, provide an email address of your own and <strong>confirm that email with a code</strong>. One person, one account. You look after your password and are responsible for what happens in your account. If you suspect misuse, change your password using "Forgot my password" and contact us.</p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">3. How the queue (auction) works</h2>
+      <ul class="list-disc pl-5 flex flex-col gap-1">
+        <li>You place a bid for <strong>5 to 60 minutes</strong> (in steps of 5) with an amount in whole reais. Whoever offers more <strong>per minute</strong> plays first; in a tie, whoever placed the bid first goes first.</li>
+        <li>A new bid <strong>never interrupts</strong> whoever is already playing: it only changes the order of those who are waiting.</li>
+        <li>The position shown is a <strong>forecast</strong>: another bid can change it at any time.</li>
+        <li>You can <strong>raise</strong> a bid that is still waiting and you pay only the difference. The raise <strong>only counts after the payment is confirmed</strong>; a pending Pix changes neither your position nor your bid. If your turn has already started when the Pix arrives, the extra minutes become a new bid; if the raise was only in amount, it buys nothing and the amount is <strong>refunded</strong> (see item 5).</li>
+        <li>The <strong>free queue</strong> gives short turns (currently 10 minutes), one spot per account, with a wait between one turn and the next, and it joins the rotation with the paid queue. The limits may change; the current value appears on the screen.</li>
+        <li>If more than one person is in the queue, the turn <strong>ends when the time ends</strong>, even in the middle of a match.</li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">4. Payment</h2>
+      <p>Payment is by <strong>Pix, in advance</strong>, for the full amount of the bid (or of the difference, for a raise). The bid only joins the queue after the payment provider confirms the Pix. A Pix paid after the QR code deadline is still honored. We do not store your bank details: the Pix is processed by the payment provider.</p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">5. Time, failures and refunds</h2>
+      <ul class="list-disc pl-5 flex flex-col gap-1">
+        <li>The clock of your turn <strong>only runs while the console is online</strong>. If the console or the connection goes down during your turn, the clock stops and the stopped time is returned to you.</li>
+        <li>If we cannot provide the service (for example, the console is not available, or the server fails before your turn starts), you can ask for a <strong>refund of the amount</strong> paid for the unused time.</li>
+        <li><strong>Once your turn has started, time already used is not refunded</strong>, including for lag, a lost match or a change of mind, unless the law says otherwise. These terms <strong>do not limit the rights that consumer protection law gives you</strong>.</li>
+        <li>Payments that bought nothing (such as a raise in amount only, paid after the turn started) are flagged and refunded. To ask for a refund, write to <span data-op="email">the operator's contact</span> with your account email and the time of the payment.</li>
+        <li>If you are removed from the queue for breaking these rules, there is no automatic refund; we review each case individually.</li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">6. Rules of conduct</h2>
+      <ul class="list-disc pl-5 flex flex-col gap-1">
+        <li>Use only the controller that the site offers. Do not try to access the PlayStation account, the console settings, the computer that controls it or the server.</li>
+        <li>Do not use programs that press buttons for you (macros, bots) and do not try to cheat the queue, the clock or the payment.</li>
+        <li>Your <strong>nickname, your bids and the game image are visible to all</strong> visitors. Do not use offensive nicknames or pretend to be someone else. Do not type or show personal data, passwords or third-party data inside the games.</li>
+        <li>Do not use the service for illegal activities or to offend other people (for example, in game chats).</li>
+        <li>We may remove you from the queue, or suspend or close your account, if these rules are broken.</li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">7. The games and the console</h2>
+      <p>The console and the PlayStation account are ours. <strong>We do not guarantee that your progress will be saved</strong> or that the game you want is installed, updated or available. Other people play on the same console before and after you. Some games may not work well over the internet.</p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">8. Availability and limits of liability</h2>
+      <p>The service depends on the internet, the console and third parties (payment provider, hosting). It may go offline, be paused or change. Quality (lag, image, sound) varies with your connection. We answer for what the law requires and, where the law allows, our liability is limited to the amount you paid for the affected time.</p>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-base">9. Changes, law and contact</h2>
+      <p>We may update these terms; the date at the top shows the version in force, and important changes will be announced on the site. Brazilian law applies, and you may bring legal action in the courts of your place of residence. Questions, refunds and privacy requests: <span data-op="email">the operator's contact</span>.</p>
+    </section>
+  </article>
+</div>
+</main>
+<footer class="border-t border-line mt-10">
+  <div class="max-w-[1400px] mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-mute">
+    <span>For adults 18 and over only. Independent site, not affiliated with Sony or with the game developers.</span>
+    <span class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1"><span>Time only runs while the console is online. Time already used is not refunded once your turn starts.</span><a href="/en/termos.html" class="text-pink hover:underline">Terms</a><a href="/en/privacidade.html" class="text-pink hover:underline">Privacy</a><a id="src-link" href="#" rel="noopener" class="hidden text-pink hover:underline">Source code</a></span>
+  </div>
+</footer>
+
+<script src="/js/i18n/en.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/legal.js"></script>
+</body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lan House PS5 // Create account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+// Paleta "cidade neon" (rosa, laranja e ciano sobre roxo escuro, com o verde do dinheiro). Troque aqui para mudar o site todo.
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0e0716', panel: '#1a0f2b', panel2: '#251639', line: '#3a2557',
+        ink: '#f6eefc', mute: '#a99bc0',
+        pink: '#ff3d9a', orange: '#ff9a2e', teal: '#2de2e6', money: '#36d97b', bad: '#ff4b5c',
+      },
+      fontFamily: { sans: ['Space Grotesk', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+    },
+  },
+};
+</script>
+<style>
+  html { background: #0e0716; }
+  body { background: #0e0716 radial-gradient(1200px 500px at 50% -120px, rgba(255,61,154,.22), transparent 70%), radial-gradient(900px 400px at 100% 0, rgba(255,154,46,.12), transparent 70%); background-attachment: fixed; }
+  .grad-text { background: linear-gradient(90deg,#ff3d9a,#ff9a2e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn-main { background: linear-gradient(90deg,#ff3d9a,#ff7a3d); color: #fff; font-weight: 700; }
+  .btn-main:hover { filter: brightness(1.1); }
+  .btn-main:disabled { opacity: .5; cursor: not-allowed; }
+  .field { background: #120a1f; border: 1px solid #3a2557; border-radius: 8px; padding: 10px 12px; width: 100%; color: #f6eefc; }
+  .field:focus { outline: none; border-color: #ff3d9a; box-shadow: 0 0 0 2px rgba(255,61,154,.25); }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24; }
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%23ff3d9a%27/%3E%3Cpath d=%27M8 22V10h4l4 6 4-6h4v12h-4v-6l-4 6-4-6v6z%27 fill=%27%230e0716%27/%3E%3C/svg%3E"/>
+</head>
+
+<body class="font-sans text-ink antialiased min-h-screen flex flex-col">
+<header class="sticky top-0 z-40 bg-bg/90 backdrop-blur border-b border-line">
+  <div class="max-w-[1400px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-6 min-w-0">
+      <a href="/en/" class="flex items-center gap-2 shrink-0">
+        <span class="material-symbols-outlined text-pink text-[28px]">sports_esports</span>
+        <span class="text-lg font-bold tracking-tight">LAN HOUSE <span class="grad-text">PS5</span></span>
+      </a>
+      <nav class="hidden sm:flex items-center gap-1"><a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Play</a><a href="/en/controles.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Controls</a><a href="/en/conta.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Account</a></nav>
+    </div>
+    <div class="flex items-center gap-3 shrink-0">
+      <span class="hidden md:flex items-center gap-2 text-xs font-mono text-mute"><span id="hdr-dot" class="w-2 h-2 rounded-full bg-mute"></span><span id="hdr-status">CONNECTING</span></span>
+      <span class="flex items-center rounded-md border border-line text-xs font-mono overflow-hidden" role="group" aria-label="Language"><a href="/criar-conta.html" data-lang="pt" hreflang="pt-BR" lang="pt-BR" class="lang-link px-2 py-1 text-mute hover:text-ink">PT</a><a href="/en/criar-conta.html" data-lang="en" hreflang="en" lang="en" class="lang-link px-2 py-1 bg-panel2 text-pink" aria-current="true">EN</a></span>
+      <div id="auth-area" class="flex items-center gap-2"></div>
+    </div>
+  </div>
+  <nav class="sm:hidden flex items-center gap-1 px-4 pb-2 overflow-x-auto"><a href="/en/" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Play</a><a href="/en/controles.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Controls</a><a href="/en/conta.html" class="px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap transition-colors text-mute hover:text-ink hover:bg-panel2">Account</a></nav>
+</header>
+
+<main class="flex-1 w-full"><div class="max-w-md mx-auto p-4 pt-10">
+  <div class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">Create account</h1>
+      <p class="text-sm text-mute">With an account you buy time, join the queue and keep your controls.</p>
+    </div>
+    <form id="register-form" class="flex flex-col gap-3" novalidate>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Email</span><input id="email" type="email" autocomplete="email" required class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Repeat the email</span><input id="email2" type="email" autocomplete="off" required class="field" /><span class="text-xs text-mute">We send a code to confirm this email. Check it carefully.</span></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Nickname (shown to everyone in the queue)</span><input id="nickname" maxlength="16" autocomplete="nickname" required class="field" /><span class="text-xs text-mute">2 to 16 characters: letters, numbers, space, _ - .</span></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Password (8 characters or more)</span><input id="password" type="password" autocomplete="new-password" required class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Repeat the password</span><input id="password2" type="password" autocomplete="new-password" required class="field" /></label>
+      <label class="flex items-start gap-2 text-sm"><input id="adult" type="checkbox" class="mt-1 accent-pink" /><span>I am 18 or older and I accept the <a href="/en/termos.html" target="_blank" rel="noopener" class="text-pink hover:underline">Terms of use</a> and the <a href="/en/privacidade.html" target="_blank" rel="noopener" class="text-pink hover:underline">Privacy policy</a>: time only runs while the console is online and time already used is not refunded once the turn has started.</span></label>
+      <p id="form-msg" class="hidden text-sm"></p>
+      <button id="submit" class="py-3 rounded-lg btn-main">Create account</button>
+    </form>
+    <p class="text-sm text-mute text-center">Already have an account? <a href="/en/entrar.html" class="text-pink font-medium hover:underline">Sign in</a></p>
+  </div>
+</div>
+</main>
+<footer class="border-t border-line mt-10">
+  <div class="max-w-[1400px] mx-auto px-4 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-mute">
+    <span>For adults 18 and over only. Independent site, not affiliated with Sony or with the game developers.</span>
+    <span class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1"><span>Time only runs while the console is online. Time already used is not refunded once your turn starts.</span><a href="/en/termos.html" class="text-pink hover:underline">Terms</a><a href="/en/privacidade.html" class="text-pink hover:underline">Privacy</a><a id="src-link" href="#" rel="noopener" class="hidden text-pink hover:underline">Source code</a></span>
+  </div>
+</footer>
+
+<script src="/js/i18n/en.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/auth.js"></script>
+</body></html>

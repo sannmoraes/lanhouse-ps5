@@ -1,0 +1,18 @@
+<!-- title: Confirm email -->
+<!-- script: confirmar.js -->
+<div class="max-w-md mx-auto p-4 pt-10">
+  <div class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">Confirm your email</h1>
+      <p id="sub" class="text-sm text-mute">We sent a 6-digit code. Enter it here to activate your account.</p>
+    </div>
+    <form id="form-confirm" class="flex flex-col gap-3" novalidate>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Email</span><input id="email" type="email" autocomplete="email" required class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">6-digit code</span><input id="code" inputmode="numeric" maxlength="6" autocomplete="one-time-code" class="field font-mono tracking-[0.4em] text-lg text-center" /></label>
+      <p id="msg" class="hidden text-sm"></p>
+      <button id="go" class="py-3 rounded-lg btn-main">Confirm and sign in</button>
+      <div class="flex justify-between text-sm"><button type="button" id="resend" class="text-pink hover:underline">Send another code</button><a href="/en/criar-conta.html" class="text-mute hover:text-ink">I entered the wrong email</a></div>
+    </form>
+    <p class="text-xs text-mute">The code is valid for 15 minutes. Didn't arrive? Check your spam folder. If you did not create this account, ignore the email: nothing will be activated.</p>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!-- title: Controls -->
+<!-- script: controles.js -->
+<div class="max-w-5xl mx-auto p-4 flex flex-col gap-4">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pt-2">
+    <div>
+      <h1 class="text-2xl font-bold">Controls</h1>
+      <p class="text-sm text-mute">Choose your keys and check your controller. Saved to your account, so it works on any device.</p>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="btn-reset" class="px-4 py-2 rounded-lg bg-panel2 hover:bg-line text-sm">Restore defaults</button>
+      <button id="btn-save" class="px-4 py-2 rounded-lg btn-main text-sm" disabled>Save</button>
+    </div>
+  </div>
+  <p id="save-msg" class="hidden text-sm"></p>
+  <div id="guest-note" class="hidden text-sm bg-panel2 border border-line rounded-lg p-3">You are not signed in: changes stay only in this browser. <a href="/en/entrar.html?next=/en/controles.html" class="text-pink underline">Sign in</a> to sync them to your account.</div>
+
+  <section class="bg-panel border border-line rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+    <div>
+      <div class="font-bold">Keyboard arrow keys</div>
+      <p class="text-sm text-mute">Choose what the arrow keys control. For 3D games (walking, driving), use the analog stick.</p>
+    </div>
+    <select id="kb-mode" class="field sm:w-64"><option value="dpad">D-pad</option><option value="stick">Left analog stick</option></select>
+  </section>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- keyboard -->
+    <section class="bg-panel border border-line rounded-xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line">
+        <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-teal text-[20px]">keyboard</span>Keyboard</h2>
+        <span class="text-xs text-mute">Click Change and press the key</span>
+      </div>
+      <div id="kb-rows" class="divide-y divide-line"></div>
+    </section>
+
+    <!-- physical controller -->
+    <section class="bg-panel border border-line rounded-xl">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-line">
+        <h2 class="font-bold flex items-center gap-2"><span class="material-symbols-outlined text-orange text-[20px]">sports_esports</span>Controller</h2>
+        <span id="pad-badge" class="text-xs font-mono px-2 py-0.5 rounded bg-panel2 text-mute">NONE</span>
+      </div>
+      <div id="pad-info" class="px-4 py-3 text-sm text-mute border-b border-line">Connect your controller by USB cable or Bluetooth and press any button for it to show up here.</div>
+      <div id="pad-rows" class="divide-y divide-line"></div>
+    </section>
+  </div>
+  <p class="text-xs text-mute">Rows light up when you press the key or button: that is how you test. Sending the commands to the console will be turned on together with the video (step 2).</p>
+</div>

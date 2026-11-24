@@ -1,0 +1,4 @@
+websockets>=14
+vgamepad>=0.1.0
+soundcard>=0.4.3
+numpy>=1.26

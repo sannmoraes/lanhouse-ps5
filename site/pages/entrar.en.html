@@ -1,0 +1,18 @@
+<!-- title: Sign in -->
+<!-- script: auth.js -->
+<div class="max-w-md mx-auto p-4 pt-10">
+  <div class="bg-panel border border-line rounded-xl p-6 flex flex-col gap-4">
+    <div>
+      <h1 class="text-2xl font-bold">Sign in</h1>
+      <p class="text-sm text-mute">Use your account email and password.</p>
+    </div>
+    <form id="login-form" class="flex flex-col gap-3" novalidate>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Email</span><input id="email" type="email" autocomplete="email" required class="field" /></label>
+      <label class="flex flex-col gap-1 text-sm"><span class="text-mute">Password</span><input id="password" type="password" autocomplete="current-password" required class="field" /></label>
+      <p id="form-msg" class="hidden text-sm"></p>
+      <button id="submit" class="py-3 rounded-lg btn-main">Sign in</button>
+      <a href="/en/recuperar-senha.html" class="text-sm text-pink text-center hover:underline">Forgot my password</a>
+    </form>
+    <p class="text-sm text-mute text-center">Don't have an account yet? <a href="/en/criar-conta.html" class="text-pink font-medium hover:underline">Create account</a></p>
+  </div>
+</div>
